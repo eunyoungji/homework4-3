@@ -23,9 +23,14 @@ public class Post extends Timestamped {
     @Column(name = "contents", nullable = false, length = 500)
     private String contents;
 
+    @Column(name = "nickname", nullable = false, unique = true)
+    private String nickname;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+
 
 //    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
 //    private List<Comment> comments;
@@ -34,11 +39,13 @@ public class Post extends Timestamped {
     public Post(PostRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.contents = requestDto.getContents();
+        this.nickname = requestDto.getNickname();
     }
 
     public void update(PostRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.contents = requestDto.getContents();
+        this.nickname = requestDto.getNickname();
     }
 
 //    public Long getId() {

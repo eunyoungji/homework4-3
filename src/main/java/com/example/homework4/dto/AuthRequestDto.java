@@ -16,6 +16,8 @@ public class AuthRequestDto {
             message = "최소 8자 이상, 15자 이하의 알파벳 대소문자, 숫자, 특수문자로 구성되어야 한다 게로!")
     private String password;
 
+    private String nickname;
+
     private UserRoleEnum role;
 
 

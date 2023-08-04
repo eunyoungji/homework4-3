@@ -63,6 +63,7 @@ public class WebSecurityConfig {
                 authorizeHttpRequests
                         .requestMatchers(new AntPathRequestMatcher("/api")
                                 , new AntPathRequestMatcher("/api/posts/**")
+                                , new AntPathRequestMatcher("/api/comments/**")
                                 , new AntPathRequestMatcher("/api/auth/**")).permitAll()
 //                        .requestMatchers("/api", "/api/auth", .permitAll()
                         .anyRequest().authenticated()

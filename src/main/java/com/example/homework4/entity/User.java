@@ -24,13 +24,17 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "nickname", nullable = false, unique = true)
+    private String nickname;
+
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
     private UserRoleEnum role;
 
-    public User(String username, String password, UserRoleEnum role) {
+    public User(String username, String password, String nickname, UserRoleEnum role) {
         this.username = username;
         this.password = password;
+        this.nickname = nickname;
         this.role = role;
     }
 

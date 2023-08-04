@@ -20,6 +20,7 @@ public class UserService {
     public void signup(AuthRequestDto authRequestDto) {
         String username = authRequestDto.getUsername();
         String password = passwordEncoder.encode(authRequestDto.getPassword());
+        String nickname = authRequestDto.getNickname();
         UserRoleEnum role = authRequestDto.getRole();
 
         if (userRepository.findByUsername(username).isPresent()) {
@@ -27,7 +28,7 @@ public class UserService {
         }
 
         // User DB에 회원 정보 저장
-        User user = new User (username, password, role);
+        User user = new User (username, password, nickname, role);
         userRepository.save(user);
     }
 
